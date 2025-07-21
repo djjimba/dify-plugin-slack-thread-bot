@@ -212,7 +212,11 @@ class SlackEndpoint(Endpoint):
             data["messages"] = messages
             data["last_cleanup"] = now
             try:
-                self.session.storage.set(key, json.dumps(data).encode("utf-8"))
+                if not messages:
+                    # メッセージが空ならキー自体を削除
+                    self.session.storage.delete(key)
+                else:
+                    self.session.storage.set(key, json.dumps(data).encode("utf-8"))
             except Exception:
                 pass
         return messages
