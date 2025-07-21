@@ -33,7 +33,7 @@ resource:
       enabled: true
     storage:
       enabled: true
-      size: 1048576
+      size: 5242880
 plugins:
   endpoints:
     - group/slack.yaml
