@@ -1,4 +1,4 @@
-version: 0.0.1
+version: 0.0.2
 type: plugin
 author: djjimba
 name: slack-thread-bot-djjimba
@@ -33,7 +33,7 @@ resource:
       enabled: true
     storage:
       enabled: true
-      size: 5242880
+      size: 104857600 # 100 MB
 plugins:
   endpoints:
     - group/slack.yaml
